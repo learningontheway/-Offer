@@ -1,14 +1,10 @@
 package 剑指offer;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.PriorityQueue;
-
-/**
+/**链表中环的入口节点
  * @author 宋伟聪
- * @date 2020/7/6 下午 2:33
+ * @date 2020/7/7 上午 11:04
  */
-public class test {
+public class JZ55 {
     public class ListNode {
         int val;
         ListNode next = null;
@@ -23,10 +19,11 @@ public class test {
         ListNode fast=pHead.next.next;
         ListNode low=pHead.next;
         while(fast!=low){
-            if(fast.next!=null)
+            if(fast.next!=null){
+                low=low.next;
                 fast=fast.next.next;
+            }
             else break;
-            low=low.next;
         }
         if(fast.next==null) return null;
         low=pHead;
